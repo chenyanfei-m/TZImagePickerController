@@ -22,7 +22,7 @@
  PhotoTweaks库的github链接：https://github.com/itouch2/PhotoTweaks
  */
 /// 获得裁剪后的图片
-+ (UIImage *)cropImageView:(UIImageView *)imageView toRect:(CGRect)rect zoomScale:(double)zoomScale containerView:(UIView *)containerView;
++ (UIImage *)cropImageView:(UIImageView *)imageView toRect:(CGRect)rect zoomScale:(double)zoomScale containerView:(UIView *)containerView cropOutputWidth:(NSInteger)cropOutputWidth;
 
 /// 获取圆形图片
 + (UIImage *)circularClipImage:(UIImage *)image;
