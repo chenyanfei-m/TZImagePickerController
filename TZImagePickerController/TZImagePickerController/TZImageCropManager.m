@@ -31,7 +31,7 @@
 }
 
 /// 获得裁剪后的图片
-+ (UIImage *)cropImageView:(UIImageView *)imageView toRect:(CGRect)rect zoomScale:(double)zoomScale containerView:(UIView *)containerView {
++ (UIImage *)cropImageView:(UIImageView *)imageView toRect:(CGRect)rect zoomScale:(double)zoomScale containerView:(UIView *)containerView cropOutputWidth:(NSInteger)cropOutputWidth {
     CGAffineTransform transform = CGAffineTransformIdentity;
     // 平移的处理
     CGRect imageViewRect = [imageView convertRect:imageView.bounds toView:containerView];
@@ -46,7 +46,7 @@
     CGImageRef imageRef = [self newTransformedImage:transform
                                         sourceImage:imageView.image.CGImage
                                          sourceSize:imageView.image.size
-                                        outputWidth:rect.size.width * [UIScreen mainScreen].scale
+                                        outputWidth:cropOutputWidth ? : rect.size.width * [UIScreen mainScreen].scale
                                            cropSize:rect.size
                                       imageViewSize:imageView.frame.size];
     UIImage *cropedImage = [UIImage imageWithCGImage:imageRef];
